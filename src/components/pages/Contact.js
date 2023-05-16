@@ -18,7 +18,9 @@ function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [messageError, setMessageError] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -31,17 +33,57 @@ function Contact() {
     }
   };
 
+  const validateFields = () => {
+    let isValid = true;
+    if (!name.trim()) {
+      setNameError("Name is required");
+      isValid = false;
+    }
+    if (!validateEmail(email)) {
+      setEmailError("Email is invalid");
+      isValid = false;
+    }
+    if (!message.trim()) {
+      setMessageError("Message is required");
+      isValid = false;
+    }
+    return isValid;
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (!validateEmail(email) || !name) {
-      setErrorMessage("Email is invalid");
-      return;
+    if (validateFields()) {
+      alert(`Hello ${name}`);
+      setName("");
+      setEmail("");
+      setMessage("");
+      setNameError("");
+      setEmailError("");
+      setMessageError("");
     }
-    alert(`Hello ${name}`);
+  };
 
-    setName("");
-    setEmail("");
-    setMessage("");
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    if (name === "name") {
+      if (!value.trim()) {
+        setNameError("Name is required");
+      } else {
+        setNameError("");
+      }
+    } else if (name === "email") {
+      if (!validateEmail(value)) {
+        setEmailError("Email is invalid");
+      } else {
+        setEmailError("");
+      }
+    } else {
+      if (!value.trim()) {
+        setMessageError("Message is required");
+      } else {
+        setMessageError("");
+      }
+    }
   };
 
   return (
@@ -52,29 +94,36 @@ function Contact() {
           style={styles.formStyle}
           className="form-control"
           name="name"
+          onBlur={handleBlur}
           onChange={handleInputChange}
           type="name"
           placeholder="Name"
           value={name}
         />
+        {nameError && <p className="error-text">{nameError}</p>}
         <input
           style={styles.formStyle}
           className="form-control"
           name="email"
+          onBlur={handleBlur}
           onChange={handleInputChange}
           type="email"
           placeholder="Email"
           value={email}
         />
+        {emailError && <p className="error-text">{emailError}</p>}
         <textarea
           style={styles.formStyle}
           className="form-control"
           name="message"
+          onBlur={handleBlur}
           onChange={handleInputChange}
           value={message}
           placeholder="Message"
           rows="5"
         />
+        {messageError && <p className="error-text">{messageError}</p>}
+
         <button
           style={styles.formStyle}
           className="btn btn-secondary"
@@ -84,7 +133,7 @@ function Contact() {
           Submit
         </button>
       </form>
-      {errorMessage && <p className="error-text">{errorMessage}</p>}
+      {messageError && <p className="error-text">{messageError}</p>}
     </div>
   );
 }
