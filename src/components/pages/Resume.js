@@ -1,5 +1,5 @@
 import React from "react";
-
+// Custom CSS Style
 const styles = {
   cardBodyStyle: {
     padding: "10px",
@@ -8,35 +8,46 @@ const styles = {
     color: "white",
     paddingBottom: "50px",
   },
+  linkStyle: {
+    textDecoration: "none",
+    color: "white",
+    margin: "10px",
+  },
 };
 
 export default function Resume() {
   return (
     <div>
       <div className="card" style={styles.cardBodyStyle}>
-        <h4 className="card-header">Resume</h4>
+        <h4 className="card-header">Proficiencies</h4>
         <div className="card-body">
-          <p>
-            As a student of the Rutgers Bootcamp in Full Stack Web Development,
-            I am eager to apply my new skills and knowledge to a challenging
-            position in the tech industry. Over the course of the program, I
-            gained expertise in several key areas, including HTML, CSS,
-            JavaScript, React.js, Node.js, and MongoDB. Additionally, I
-            developed strong problem-solving and collaboration skills through
-            working on team projects and completing individual assignments.
-          </p>
-          <p>
-            Prior to enrolling in the bootcamp, I was a business analyst for the
-            last 8 years
-          </p>
-          <p>
-            I am excited to continue learning and growing in the tech industry,
-            and I believe that my combination of technical skills and
-            collaborative mindset make me a strong candidate for any software
-            development position. Please do not hesitate to reach out to me if
-            you would like to discuss my qualifications further. Thank you for
-            considering my application.
-          </p>
+          <ul>
+            <li>HTML</li>
+            <li>Javascript</li>
+            <li>Nodejs</li>
+            <li>CSS</li>
+            <ol>
+              <li>Bootstrap</li>
+              <li>Tailwind</li>
+              <li>Foundation CSS</li>
+            </ol>
+            <li>Backend</li>
+            <ol>
+              <li>SQL</li>
+              <li>MondoDB</li>
+              <li>Apollo Server</li>
+            </ol>
+          </ul>
+        </div>
+        <div className="card-footer">
+          <i class="bi bi-arrow-down-circle-fill"></i>
+          <a
+            style={styles.linkStyle}
+            href="./assets/resume-arlindo-pinto.pdf"
+            download
+          >
+            Click here to download my resume
+          </a>
         </div>
       </div>
     </div>

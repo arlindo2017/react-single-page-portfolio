@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { validateEmail } from "../utils/helpers";
-
+// Custom CSS Style
 const styles = {
   cardBodyStyle: {
     padding: "10px",
@@ -13,7 +13,7 @@ const styles = {
     margin: "10px 0",
   },
 };
-
+// Creates variables and sets states of '' for all
 function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,7 +21,7 @@ function Contact() {
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [messageError, setMessageError] = useState("");
-
+  // handles wich error message to display
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === "name") {
@@ -32,7 +32,7 @@ function Contact() {
       setMessage(value);
     }
   };
-
+  // validate fields
   const validateFields = () => {
     let isValid = true;
     if (!name.trim()) {
@@ -49,7 +49,7 @@ function Contact() {
     }
     return isValid;
   };
-
+  // resets evberything back to '' after submitting
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (validateFields()) {
@@ -62,7 +62,7 @@ function Contact() {
       setMessageError("");
     }
   };
-
+  // When user clicks away from inputs, check for value, otherwise sets the error message
   const handleBlur = (e) => {
     const { name, value } = e.target;
     if (name === "name") {

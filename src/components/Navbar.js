@@ -1,8 +1,7 @@
 import React from "react";
-
+// Custom CSS Style
 const styles = {
   navbarStyle: {
-    // fontWeight: "bold",
     marginBottom: "5px",
     background: "#222831",
     opacity: "0.9",
