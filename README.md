@@ -1,5 +1,5 @@
 # REACT SINGLE PAGE PORTFOLIO
-Single Page Portfolio using React where you can showcase some of your projects and publish a resume about your skillset. 
+Single Page Portfolio using React where you can showcase some of your projects and publish a resume about your skillsets. 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -27,5 +27,5 @@ Single Page Portfolio
 ## Skills on display
 - React
 - Bootstrap
-- Custom CSS Styles
+- Custom CSS Styles in javascript
 
